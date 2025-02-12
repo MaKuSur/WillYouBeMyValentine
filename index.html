@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Вопрос -->
+    <div id="question">
+
+        <!-- Рамки для фотографий -->
+        <div class="photo-frame top-left">
+            <img src="photo/photo_1.jpg" alt="Фото 1">
+        </div>
+        <div class="photo-frame top-right">
+            <img src="photo/photo_2.jpg" alt="Фото 2">
+        </div>
+        <div class="photo-frame bottom-left">
+            <img src="photo/photo_3.jpg" alt="Фото 3">
+        </div>
+        <div class="photo-frame bottom-right">
+            <img src="photo/photo_4.jpg" alt="Фото 4">
+        </div>
+        <div class="photo-frame middle-left">
+            <img src="photo/photo_5.jpg" alt="Фото 5">
+        </div>
+        <div class="photo-frame middle-right">
+            <img src="photo/photo_6.jpg" alt="Фото 6">
+        </div>
+
+        <h1 id="questionText">Will you be my Valentine? 💖</h1>
+        <div class="buttons">
+            <button class="button yes" id="yesButton">Да</button>
+            <button class="button no" id="noButton">Нет</button>
+        </div>
+        <!-- Анимированный котёнок -->
+        <img src="https://media.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif" alt="Милый котёнок" class="kitten">
+    </div>
+
+    <!-- Анимация текста -->
+    <div id="loveText" class="love-text">
+
+
+        
+    </div>
+
+    <!-- Плейлист (скрыт сначала) -->
+    <div id="playlist" class="playlist">
+        <h1>💖 Плейлист, песни которого ассоциируется у меня с тобой 💖</h1>
+
+        <div class="records-container">
+            <!-- Пластинки с 1 по 15 -->
+            <!-- Пластинка 1 -->
+            <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song1')">
+                        <audio id="song1" src="music/Aerosmith - I Don't Want to Miss a Thing.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">Aerosmith - I Don't Want to Miss a Thing</div>
+            </div>
+
+            <!-- Пластинка 2 -->
+            <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song2')">
+                        <audio id="song2" src="music/lanadel_rey-chemtrails-over-the-country-club.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">Lana Del Rey - Chemtrails over the country club</div>
+            </div>
+
+            <!-- Пластинка 3 -->
+            <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song3')">
+                        <audio id="song3" src="music/Jim Croce - Time in a Bottle.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">Jim Croce - Time in a Bottle</div>
+            </div>
+
+            <!-- Пластинка 4 -->
+            <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song4')">
+                        <audio id="song4" src="music/alt-j - Breezeblocks.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">alt-j - Breezeblocks</div>
+            </div>
+
+            <!-- Пластинка 5 -->
+            <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song5')">
+                        <audio id="song5" src="music/Childish Gambino - Redbone.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">Childish Gambino - Redbone</div>
+            </div>
+
+            <!-- Пластинка 6 -->
+            <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song6')">
+                        <audio id="song6" src="music/John Lennon - Imagine.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">John Lennon - Imagine</div>
+            </div>
+
+            <!-- Пластинка 7 -->
+            <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song7')">
+                        <audio id="song7" src="music/nervy-muza.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">Нервы - Муза</div>
+            </div>
+
+            <!-- Пластинка 8 -->
+            <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song8')">
+                        <audio id="song8" src="music/Nick Carter - Miss America.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">Nick Carter - Miss America</div>
+            </div>
+
+            <!-- Пластинка 9 -->
+            <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song9')">
+                        <audio id="song9" src="music/Poets Of The Fall - Sleep.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">Poets Of The Fall - Sleep9</div>
+            </div>
+
+            <!-- Пластинка 10 -->
+            <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song10')">
+                        <audio id="song10" src="music/Reamonn - Tonight.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">Reamonn - Tonight</div>
+            </div>
+
+            <!-- Пластинка 11 -->
+            <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song11')">
+                        <audio id="song11" src="music/She Wants Revenge - Tear You Apart.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">She Wants Revenge - Tear You Apart</div>
+            </div>
+
+            <!-- Пластинка 12 -->
+            <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song12')">
+                        <audio id="song12" src="music/The Neighbourhood - Sweater Weather.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">The Neighbourhood - Sweater Weather</div>
+            </div>
+
+            <!-- Пластинка 13 -->
+            <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song13')">
+                        <audio id="song13" src="music/3 Doors Down - Here Without You.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">3 Doors Down - Here Without You</div>
+            </div>
+
+             <!-- Пластинка 14 -->
+             <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song14')">
+                        <audio id="song14" src="music/Michael Sembello - Maniac.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">Michael Sembello - Maniac</div>
+            </div>
+
+             <!-- Пластинка 15 -->
+             <div class="record-item">
+                <div class="record-wrapper"> <!-- Обертка для фона -->
+                    <div class="record" onclick="playSong('song15')">
+                        <audio id="song15" src="music/Scorpions - Still Loving You.mp3"></audio>
+                    </div>
+                </div>
+                <div class="record-label">Scorpions - Still Loving You</div>
+            </div>
+        </div>
+        <footer>
+            С любовью, твоя гусеница 💕
+        </footer>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
