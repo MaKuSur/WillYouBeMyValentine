@@ -93,7 +93,6 @@ function playSong(songId) {
         if (isPlaying) {
             console.log(`Pausing audio: ${songId}`); // Лог для отладки
             audio.pause();
-            audio.currentTime = 0; // Сбрасываем время воспроизведения
             record.classList.remove('playing');
             record.classList.add('paused');
             recordWrapper.classList.remove('playing');
