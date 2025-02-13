@@ -51,13 +51,14 @@ h1 {
     /* Уменьшен отступ между кнопками */
     position: relative;
     transition: gap 0.5s ease;
+    z-index: 10;
 }
 
 .button {
     background: linear-gradient(45deg, #ff69b4, #ff1493);
     color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 16px;
     padding: 8px 16px;
     font-size: 16px;
     cursor: pointer;
@@ -187,11 +188,11 @@ h1 {
 
     0%,
     100% {
-        box-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+        box-shadow: 0 0 10px rgba(255, 20, 147, 0.8);
     }
 
     50% {
-        box-shadow: 0 0 40px rgba(255, 20, 147, 1);
+        box-shadow: 0 0 20px rgba(255, 20, 147, 1);
     }
 }
 
@@ -255,18 +256,24 @@ footer {
         flex-direction: column;
         /* Кнопки в столбик на очень маленьких экранах */
         gap: 10px;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto; /* Центрирование контейнера */
+    width: fit-content; /* Ширина контейнера по содержимому */
     }
 
     .button {
         background: linear-gradient(45deg, #ff69b4, #ff1493);
         color: white;
         border: none;
-        border-radius: 25px;
+        border-radius: 16px;
         padding: 8px 16px;
         font-size: 16px;
         cursor: pointer;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100px; /* Уменьшенная ширина для мобильных устройств */
     }
 
     .button:hover {
@@ -282,6 +289,11 @@ footer {
     .record {
         width: 60px;
         /* Еще меньше размер пластинки */
+        height: 60px;
+    }
+
+    .record-wrapper {
+        width: 60px; /* Уменьшенный размер обёртки для мобильных устройств */
         height: 60px;
     }
 
@@ -304,6 +316,15 @@ footer {
         /* Сдвинь текст еще ниже */
         max-width: 80%;
         /* Уменьши максимальную ширину текста */
+    }
+
+    @keyframes blinkBackground {
+        0%, 100% {
+            box-shadow: 0 0 5px rgba(255, 20, 147, 0.8); /* Уменьшенная тень */
+        }
+        50% {
+            box-shadow: 0 0 10px rgba(255, 20, 147, 1); /* Увеличенная тень */
+        }
     }
 }
 
