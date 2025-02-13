@@ -108,5 +108,19 @@ function playSong(songId) {
             recordWrapper.classList.add('playing');
         }
     }
-yesButton.addEventListener('click', startLoveAnimation);
-noButton.addEventListener('click', askAgain);
+
+    function createFirefly() {
+        const firefly = document.createElement('div');
+        firefly.classList.add('firefly');
+        firefly.style.left = Math.random() * 100 + 'vw';
+        firefly.style.top = Math.random() * 100 + 'vh';
+        document.body.appendChild(firefly);
+
+        setTimeout(() => {
+            firefly.remove();
+        }, 3000);
+    }
+
+    setInterval(createFirefly, 500);    
+    yesButton.addEventListener('click', startLoveAnimation);
+    noButton.addEventListener('click', askAgain);
