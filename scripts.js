@@ -70,56 +70,83 @@ function startLoveAnimation() {
 }
 
 function playSong(songId) {
-        const audio = document.getElementById(songId);
-        const record = document.querySelector(`[onclick="playSong('${songId}')"]`);
-        const recordWrapper = record.parentElement;
+    const audio = document.getElementById(songId);
+    const record = document.querySelector(`[onclick="playSong('${songId}')"]`);
+    const recordWrapper = record.parentElement;
 
-        // Проверяем, играет ли текущее аудио
-        const isPlaying = !audio.paused;
+    // Проверяем, играет ли текущее аудио
+    const isPlaying = !audio.paused;
 
-        // Останавливаем все другие аудио и сбрасываем их состояние
-        document.querySelectorAll('audio').forEach(audioElement => {
-            if (audioElement !== audio) {
-                audioElement.pause();
-                audioElement.currentTime = 0;
-                const otherRecord = document.querySelector(`[onclick="playSong('${audioElement.id}')"]`);
-                const otherRecordWrapper = otherRecord.parentElement;
-                otherRecord.classList.remove('playing', 'paused');
-                otherRecordWrapper.classList.remove('playing', 'paused');
-            }
-        });
-
-        // Если текущее аудио уже играет, ставим его на паузу
-        if (isPlaying) {
-            console.log(`Pausing audio: ${songId}`); // Лог для отладки
-            audio.pause();
-            record.classList.remove('playing');
-            record.classList.add('paused');
-            recordWrapper.classList.remove('playing');
-            recordWrapper.classList.add('paused');
-        } else {
-            // Если аудио на паузе или не играло, воспроизводим его
-            console.log(`Playing audio: ${songId}`); // Лог для отладки
-            audio.play();
-            record.classList.remove('paused');
-            record.classList.add('playing');
-            recordWrapper.classList.remove('paused');
-            recordWrapper.classList.add('playing');
+    // Останавливаем все другие аудио и сбрасываем их состояние
+    document.querySelectorAll('audio').forEach(audioElement => {
+        if (audioElement !== audio) {
+            audioElement.pause();
+            audioElement.currentTime = 0;
+            const otherRecord = document.querySelector(`[onclick="playSong('${audioElement.id}')"]`);
+            const otherRecordWrapper = otherRecord.parentElement;
+            otherRecord.classList.remove('playing', 'paused');
+            otherRecordWrapper.classList.remove('playing', 'paused');
         }
+    });
+
+    // Если текущее аудио уже играет, ставим его на паузу
+    if (isPlaying) {
+        console.log(`Pausing audio: ${songId}`); // Лог для отладки
+        audio.pause();
+        record.classList.remove('playing');
+        record.classList.add('paused');
+        recordWrapper.classList.remove('playing');
+        recordWrapper.classList.add('paused');
+    } else {
+        // Если аудио на паузе или не играло, воспроизводим его
+        console.log(`Playing audio: ${songId}`); // Лог для отладки
+        audio.play();
+        record.classList.remove('paused');
+        record.classList.add('playing');
+        recordWrapper.classList.remove('paused');
+        recordWrapper.classList.add('playing');
+    }
+}
+
+function createFirefly() {
+    const firefly = document.createElement('div');
+    firefly.classList.add('firefly');
+    firefly.style.left = Math.random() * 100 + 'vw';
+    firefly.style.top = Math.random() * 100 + 'vh';
+    document.body.appendChild(firefly);
+
+    setTimeout(() => {
+        firefly.remove();
+    }, 3000);
+}
+
+function updateCountdown() {
+    const targetDate = new Date('2025-02-16T09:30:00+05:00'); // Устанавливаем целевую дату и время
+    const now = new Date(); // Текущее время
+    const timeDifference = targetDate - now; // Разница во времени в миллисекундах
+
+    if (timeDifference <= 0) {
+        document.getElementById('countdown').innerHTML = "<h2>Время настало! 💖</h2>";
+        return;
     }
 
-    function createFirefly() {
-        const firefly = document.createElement('div');
-        firefly.classList.add('firefly');
-        firefly.style.left = Math.random() * 100 + 'vw';
-        firefly.style.top = Math.random() * 100 + 'vh';
-        document.body.appendChild(firefly);
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-        setTimeout(() => {
-            firefly.remove();
-        }, 3000);
-    }
+    document.getElementById('days').textContent = String(days).padStart(2, '0');
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+}
 
-    setInterval(createFirefly, 500);    
-    yesButton.addEventListener('click', startLoveAnimation);
-    noButton.addEventListener('click', askAgain);
+setInterval(createFirefly, 500);
+yesButton.addEventListener('click', startLoveAnimation);
+noButton.addEventListener('click', askAgain);
+
+// Обновляем таймер каждую секунду
+setInterval(updateCountdown, 1000);
+
+// Инициализация таймера при загрузке страницы
+updateCountdown();
