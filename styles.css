@@ -1,5 +1,5 @@
- /* Общие стили */
- body {
+/* Общие стили */
+body {
     font-family: 'Pacifico', cursive;
     background-color: #ffe6f2;
     color: #ff1493;
@@ -259,8 +259,10 @@ footer {
         z-index: 10;
         display: flex;
         justify-content: center;
-        margin: 0 auto; /* Центрирование контейнера */
-    width: fit-content; /* Ширина контейнера по содержимому */
+        margin: 0 auto;
+        /* Центрирование контейнера */
+        width: fit-content;
+        /* Ширина контейнера по содержимому */
     }
 
     .button {
@@ -273,7 +275,8 @@ footer {
         cursor: pointer;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        width: 100px; /* Уменьшенная ширина для мобильных устройств */
+        width: 100px;
+        /* Уменьшенная ширина для мобильных устройств */
     }
 
     .button:hover {
@@ -293,7 +296,8 @@ footer {
     }
 
     .record-wrapper {
-        width: 60px; /* Уменьшенный размер обёртки для мобильных устройств */
+        width: 60px;
+        /* Уменьшенный размер обёртки для мобильных устройств */
         height: 60px;
     }
 
@@ -319,11 +323,16 @@ footer {
     }
 
     @keyframes blinkBackground {
-        0%, 100% {
-            box-shadow: 0 0 5px rgba(255, 20, 147, 0.8); /* Уменьшенная тень */
+
+        0%,
+        100% {
+            box-shadow: 0 0 5px rgba(255, 20, 147, 0.8);
+            /* Уменьшенная тень */
         }
+
         50% {
-            box-shadow: 0 0 10px rgba(255, 20, 147, 1); /* Увеличенная тень */
+            box-shadow: 0 0 10px rgba(255, 20, 147, 1);
+            /* Увеличенная тень */
         }
     }
 }
@@ -468,6 +477,32 @@ audio {
 }
 
 @keyframes flicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+#countdown {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #ff1493;
+    text-align: center;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#timer span {
+    font-weight: bold;
+    color: #ff69b4;
 }
